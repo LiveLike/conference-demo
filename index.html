@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="tabset">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab-link-widget" checked>
+        <label for="tab-link-widget">Widgets</label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab-link-leaderboard" />
+        <label for="tab-link-leaderboard">Leaderboard</label>
+
+        <div class="tab-panels">
+            <section id="tab-widgets" class="tab-panel">
+                <h2>Widgets</h2>
+                <livelike-widgets programid="9baf1962-f7db-43b9-ae8e-b84f1bf31988" mode="interactive-timeline">
+                </livelike-widgets>
+            </section>
+            <section id="tab-leaderboard" class="tab-panel">
+                <h2>Leaderboard</h2>
+                <div class="leaderboard-container">
+                    <table>
+                        <thead>
+                            <th>rank</th>
+                            <th>nickname</th>
+                            <th>score</th>
+                        </thead>
+                        <tbody class="leaderboard-entries-container"> </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="modal" id="modal" style="display: none;">
+        <input type="text" id="first-name" placeholder="First name" />
+        <input type="text" id="last-name" placeholder="Last name" />
+        <br />
+        <button onclick="submitNickname()">Submit</button>
+    </div>
+
+    <script src="https://unpkg.com/@livelike/engagementsdk@2.19.0/livelike.umd.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const programId = "9baf1962-f7db-43b9-ae8e-b84f1bf31988";
+        const clientId = "jV2LSongmdccPRL65M8GC6Z8lTievPsRsqsoSMiq";
+        init(clientId, programId);
+    </script>
+</body>
+
+</html>
