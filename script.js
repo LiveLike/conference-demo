@@ -1,5 +1,44 @@
+const updateUserProfile = ({ nickname, email, firstName, lastName }) => {
+    email = "xhevat@livelike.com";
+    nickname = "xhevo";
+    LiveLike.updateUserProfile({
+        accessToken: LiveLike.userProfile.access_token,
+        options: {
+            nickname: nickname,
+            custom_data: JSON.stringify({
+                email: email,
+                firstName: firstName,
+                lastName: lastName
+            })
+        }
+    }).then(res => {
+        refreshProfileData();
+    }).catch(err => {
+        console.warn(err);
+    });
+};
 
-function setupLeaderboard(program) {
+const refreshProfileData = () => {
+    document.querySelector("#tab-link-profile-label").innerHTML = `Profile(${LiveLike.userProfile.nickname})`;
+    document.querySelector("#form-user-nickname").value = LiveLike.userProfile.nickname;
+    var customData = JSON.parse(LiveLike.userProfile.custom_data);
+    if (customData) {
+        document.querySelector("#form-user-email").value = customData.email;
+        document.querySelector("#form-user-firstname").value = customData.firstName;
+        document.querySelector("#form-user-lastname").value = customData.lastName;
+    }
+}
+
+const handleUpdateUserProfile = (e) => {
+    updateUserProfile({
+        nickname: document.querySelector("#form-user-nickname").value,
+        email: document.querySelector("#form-user-email").value,
+        firstName: document.querySelector("#form-user-firstname").value,
+        lastName: document.querySelector("#form-user-lastname").value,
+    });
+};
+
+const setupLeaderboard = (program) => {
     const buildProfileRank = (leaderboardId) =>
         LiveLike.getLeaderboardProfileRank({
             leaderboardId,
@@ -37,8 +76,6 @@ function setupLeaderboard(program) {
                 Array.from(lbContainer.children).forEach((el) => el.remove());
 
             // Loop through leaderboard entries to create list items for each entry
-            console.log(lb.entries);
-            console.log(lb);
             lb.entries.forEach((entry) => {
                 const entryRow = document.createElement("tr");
                 entryRow.setAttribute("class", "list-item");
@@ -66,7 +103,7 @@ function setupLeaderboard(program) {
             buildProfileRank(leaderboardId);
         });
     }
-}
+};
 
 const showNicknameOverlay = () => {
     document.getElementById("modal").style.display = "block";
@@ -112,5 +149,6 @@ const initLiveLike = (clientId, program) => {
         setupTheme();
         setupNickname();
         setupLeaderboard(program);
+        refreshProfileData();
     });
 }
