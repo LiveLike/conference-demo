@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="livelike-widgets.css">
 </head>
 
 <body>
@@ -19,18 +20,16 @@
 
         <div class="tab-panels">
             <section id="tab-widgets" class="tab-panel">
-                <h2>Widgets</h2>
                 <livelike-widgets programid="9baf1962-f7db-43b9-ae8e-b84f1bf31988" mode="interactive-timeline">
                 </livelike-widgets>
             </section>
             <section id="tab-leaderboard" class="tab-panel">
-                <h2>Leaderboard</h2>
                 <div class="leaderboard-container">
-                    <table>
+                    <table class="leaderboard-table">
                         <thead>
-                            <th>rank</th>
-                            <th>nickname</th>
-                            <th>score</th>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
                         </thead>
                         <tbody class="leaderboard-entries-container"> </tbody>
                     </table>
@@ -50,6 +49,7 @@
     </div>
 
     <script src="https://unpkg.com/@livelike/engagementsdk@2.19.0/livelike.umd.js"></script>
+    <script src="livelike-theme.js"></script>
     <script src="script.js"></script>
     <script>
         const programId = "9baf1962-f7db-43b9-ae8e-b84f1bf31988";

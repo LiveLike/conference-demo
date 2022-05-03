@@ -23,8 +23,9 @@
  Styling
 */
 body {
+  background-color: black;
+  color: white;
   font: 3em "Overpass", "Open Sans", Helvetica, sans-serif;
-  color: #333;
   font-weight: 300;
 }
 
@@ -45,12 +46,12 @@ body {
   bottom: 10px;
   width: 22px;
   height: 4px;
-  background: #8d8d8d;
+  background: lightgray;
 }
 
 .tabset>label:hover,
 .tabset>input:focus+label {
-  color: #06c;
+  color: red;
 }
 
 .tabset>label:hover::after,
@@ -129,16 +130,29 @@ body {
   text-align: center;
   border-radius: 5px;
   /* needed styles for the overlay */
-  z-index: 10; /* keep on top of other elements on the page */
-  box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+  z-index: 10;
+  /* keep on top of other elements on the page */
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
 }
 
-.modal > input{
+.modal>input {
   font-size: xx-large;
   width: 80%;
 }
 
-.modal > button{
+.modal>button {
   font-size: xx-large;
   width: 80%;
+}
+
+/* leaderboard style */
+
+.leaderboard-table {
+  text-align: left;
+  table-layout: auto;
+  width: 100%;
+}
+
+.leaderboard-table>thead {
+  color: red;
 }

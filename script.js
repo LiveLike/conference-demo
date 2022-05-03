@@ -109,6 +109,7 @@ const initLiveLike = (clientId, program) => {
     LiveLike.init({
         clientId: clientId,
     }).then((profile) => {
+        setupTheme();
         setupNickname();
         setupLeaderboard(program);
     });
