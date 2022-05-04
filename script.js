@@ -1,6 +1,4 @@
 const updateUserProfile = ({ nickname, email, firstName, lastName }) => {
-    email = "xhevat@livelike.com";
-    nickname = "xhevo";
     LiveLike.updateUserProfile({
         accessToken: LiveLike.userProfile.access_token,
         options: {
