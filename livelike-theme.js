@@ -6,7 +6,7 @@ const globalWidgetStyle = {
             color: "FF0000",
             format: "fill"
         },
-        margin: [25, 0, 0, 0],
+        margin: [10, 0, 0, 0],
     },
     body: {
         fontColor: "000000",
@@ -14,7 +14,7 @@ const globalWidgetStyle = {
             color: "cccccc",
             format: "fill"
         },
-        margin: [0, 0, 100, 0],
+        margin: [0, 0, 10, 0],
         borderRadius: [0, 0, 25, 25]
     },
     selectedOption: {
