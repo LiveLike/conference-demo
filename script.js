@@ -17,7 +17,7 @@ const updateUserProfile = ({ nickname, email, firstName, lastName }) => {
 };
 
 const refreshProfileData = () => {
-    document.querySelector("#messages-tab").innerHTML = `Profile(${LiveLike.userProfile.nickname})`;
+    document.querySelector("#profile-tab-label").innerHTML = `Profile(${LiveLike.userProfile.nickname})`;
     document.querySelector("#form-user-nickname").value = LiveLike.userProfile.nickname;
     var customData = JSON.parse(LiveLike.userProfile.custom_data);
     if (customData) {

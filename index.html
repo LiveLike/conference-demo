@@ -16,15 +16,15 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-          role="tab" aria-controls="home" aria-selected="true">Widgets</button>
+          role="tab" aria-controls="home" aria-selected="true"><b>Widgets</b></button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-          role="tab" aria-controls="profile" aria-selected="false">Leaderboard</button>
+          role="tab" aria-controls="profile" aria-selected="false"><b>Leaderboard</b></button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button"
-          role="tab" aria-controls="messages" aria-selected="false">Profile</button>
+          role="tab" aria-controls="messages" aria-selected="false"><b id="profile-tab-label">Profile</b></button>
       </li>
     </ul>
 
@@ -39,9 +39,9 @@
         <div class="leaderboard-container">
           <table class="leaderboard-table">
             <thead>
-              <th>Rank</th>
-              <th>Player</th>
-              <th>Score</th>
+              <th><b>Rank</b></th>
+              <th><b>Player</b></th>
+              <th><b>Score</b></th>
             </thead>
             <tbody class="leaderboard-entries-container"> </tbody>
           </table>
@@ -50,14 +50,17 @@
       <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
         <div class="profile-container">
           <form autocomplete="off">
-            <label class="form-label" for="form-user-firstName">Nickname:</label>
-            <input type="text" id="form-user-nickname" class="form-control" />
-            <label class="form-label" for="form-user-email">Email:</label>
-            <input type="email" id="form-user-email" class="form-control" />
-            <label class="form-label" for="form-user-firstName">First Name:</label>
-            <input type="text" id="form-user-firstname" class="form-control" />
-            <label class="form-label" for="form-user-lastName">Last Name:</label>
-            <input type="text" id="form-user-lastname" class="form-control" />
+            <label class="form-label" for="form-user-firstName"><b>First Name</b></label>
+            <input type="text" id="form-user-firstname" class="profile-input form-control" />
+            <br />
+            <label class="form-label" for="form-user-lastName"><b>Last Name</b></label>
+            <input type="text" id="form-user-lastname" class="profile-input form-control" />
+            <br />
+            <label class="form-label" for="form-user-email"><b>Email</b></label>
+            <input type="email" id="form-user-email" class="profile-input form-control" />
+            <br />
+            <label class="form-label" for="form-user-firstName"><b>Nickname</b></label>
+            <input type="text" id="form-user-nickname" class="profile-input form-control" />
           </form>
           <br />
           <button class="btn btn-default" onclick="handleUpdateUserProfile()">Update Profile</button>

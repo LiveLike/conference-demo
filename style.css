@@ -1,6 +1,6 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .livelike-widgets-container {
@@ -71,25 +71,30 @@ body {
 }
 
 .leaderboard-table>thead {
-  color: red;
+  color: #00aaff;
 }
 
 .profile-container {
-  color: white;
-  background-color: black;
+  margin-top: 30px;
+  color: black;
+  background-color: white;
 }
 
 .profile-container>button {
-  color: white;
-  background-color: green;
+  color: black;
+  background-color: #00aaff;
+}
+
+.profile-input {
+  border-width: 2px;
+  border-color:#00aaff;
+  border-radius: 20px;
 }
 
 .nav-tabs .nav-item .nav-link {
-  color: white;
-  background-color: black;
+  color: black;
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  background-color: red;
-  color: black;
+  color: #00aaff;
 }

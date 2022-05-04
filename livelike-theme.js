@@ -1,55 +1,62 @@
 const globalWidgetStyle = {
     header: {
-        fontColor: "000000",
-        borderRadius: [25, 25, 0, 0],
+        borderColor: "00aaff",
+        borderWidth: 1,
+        fontColor: "ffffff",
         background: {
-            color: "FF0000",
+            color: "00aaff",
             format: "fill"
         },
         margin: [10, 0, 0, 0],
     },
     body: {
+        borderColor: "00aaff",
+        borderWidth: 1,
         fontColor: "000000",
         background: {
-            color: "cccccc",
+            color: "dedede",
             format: "fill"
         },
-        margin: [0, 0, 10, 0],
-        borderRadius: [0, 0, 25, 25]
+        margin: [0, 0, 10, 0]
     },
     selectedOption: {
-        borderColor: "000000",
+        borderColor: "00aaff",
+        borderWidth: 1,
         background: {
-            color: "aaaaaa",
+            color: "ffffff",
             format: "fill"
         },
     },
     correctOptionBar: {
+        borderColor: "00aaff",
+        borderWidth: 1,
         background: {
-            colors: ["00000088", "ffffff"],
-            direction: 0,
-            format: "uniformGradient"
+            colors: "dedede",
+            format: "fill"
         },
     },
     incorrectOptionBar: {
+        borderColor: "00aaff",
+        borderWidth: 1,
         background: {
-            colors: ["00000088", "ffffff"],
-            direction: 0,
-            format: "uniformGradient"
+            colors: "dedede",
+            format: "fill"
         },
     },
     unselectedOptionBar: {
+        borderColor: "00aaff",
+        borderWidth: 1,
         background: {
-            colors: ["00000088", "ffffff"],
-            direction: 0,
-            format: "uniformGradient"
+            colors: "dedede",
+            format: "fill"
         },
     },
     selectedOptionBar: {
+        borderColor: "ff0000",
+        borderWidth: 1,
         background: {
-            colors: ["00000088", "ffffff"],
-            direction: 0,
-            format: "uniformGradient"
+            colors: "dedede",
+            format: "fill"
         },
     }
 };
