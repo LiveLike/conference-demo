@@ -83,3 +83,13 @@ body {
   color: white;
   background-color: green;
 }
+
+.nav-tabs .nav-item .nav-link {
+  color: white;
+  background-color: black;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background-color: red;
+  color: black;
+}
