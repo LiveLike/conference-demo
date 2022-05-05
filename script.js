@@ -113,10 +113,11 @@ const setupLeaderboard = (program) => {
 
 const showProfileTab = () => {
     document.getElementById("profile-tab-label").click();
+    localStorage.setItem("HasAlreadyVisited", true);
 };
 
 const isLoggedIn = () => {
-    var value = localStorage.getItem("isLoggedIn");
+    var value = localStorage.getItem("HasAlreadyVisited");
     if (value) {
         return true;
     } else {
