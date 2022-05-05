@@ -60,15 +60,15 @@ const globalWidgetStyle = {
         },
     },
     interactiveTrackLeft: {
-        "background": {
-            "color": "00000000",
-            "format": "fill"
+        background: {
+            color: "ffffff",
+            format: "fill"
         },
     },
     interactiveTrackRight: {
-        "background": {
-            "color": "00aaff",
-            "format": "fill"
+        background: {
+            color: "44bbff",
+            format: "fill"
         },
     }
 };
