@@ -111,12 +111,8 @@ const setupLeaderboard = (program) => {
     }
 };
 
-const showNicknameOverlay = () => {
-    document.getElementById("modal").style.display = "block";
-};
-
-const hideNicknameOverlay = () => {
-    document.getElementById("modal").style.display = "none";
+const showProfileTab = () => {
+    document.getElementById("profile-tab-label").click();
 };
 
 const isLoggedIn = () => {
@@ -128,16 +124,10 @@ const isLoggedIn = () => {
     }
 };
 
-const setupNickname = () => {
+const showProfileTabIfFirstTimeVisiting = () => {
     if (!isLoggedIn()) {
-        showNicknameOverlay();
+        showProfileTab();
     }
-}
-
-const submitNickname = () => {
-    //sumbitNickname().then();
-    hideNicknameOverlay();
-    localStorage.setItem("isLoggedIn", true);
 }
 
 const init = (clientId, programId) => {
@@ -153,7 +143,7 @@ const initLiveLike = (clientId, program) => {
         clientId: clientId,
     }).then((profile) => {
         setupTheme();
-        setupNickname();
+        showProfileTabIfFirstTimeVisiting();
         setupLeaderboard(program);
         refreshProfileData();
     });
