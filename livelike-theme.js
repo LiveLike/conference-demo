@@ -67,7 +67,8 @@ const setupTheme = () => {
             poll: globalWidgetStyle,
             quiz: globalWidgetStyle,
             prediction: globalWidgetStyle,
-            imageSlider: globalWidgetStyle
+            imageSlider: globalWidgetStyle,
+            cheerMeter: globalWidgetStyle,
         }
     });
 };
