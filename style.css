@@ -103,6 +103,17 @@ body {
   background-color: #00aaff !important;
 }
 
+livelike-footer {
+  background-color: #dedede !important;
+}
+
+livelike-option {
+  border-width: 1px !important;
+  border-color: #00aaff !important;
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
 .small-text {
   font-size: 0.6em;
 }

@@ -19,6 +19,12 @@ const globalWidgetStyle = {
         },
         margin: [0, 0, 10, 0]
     },
+    footer: {
+        background: {
+            color: "000000",
+            format: "fill"
+        }
+    },
     selectedOption: {
         borderColor: "00aaff",
         borderWidth: 1,
@@ -70,7 +76,7 @@ const globalWidgetStyle = {
             color: "44bbff",
             format: "fill"
         },
-    }
+    },
 };
 
 const setupTheme = () => {
@@ -81,8 +87,8 @@ const setupTheme = () => {
             prediction: globalWidgetStyle,
             imageSlider: globalWidgetStyle,
             cheerMeter: globalWidgetStyle,
-            alert:globalWidgetStyle,
-            videoAlert:globalWidgetStyle,
+            alert: globalWidgetStyle,
+            videoAlert: globalWidgetStyle,
         }
     });
 };
