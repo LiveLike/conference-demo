@@ -28,9 +28,9 @@ const refreshProfileData = () => {
     document.querySelector("#form-user-nickName").value = LiveLike.userProfile.nickname;
     var customData = JSON.parse(LiveLike.userProfile.custom_data);
     if (customData) {
-        document.querySelector("#form-user-fullName").value = customData.fullName;
-        document.querySelector("#form-user-userName").value = customData.userName;
-        document.querySelector("#form-user-email").value = customData.email;
+        document.querySelector("#form-user-fullName").value = customData.fullName | "";
+        document.querySelector("#form-user-userName").value = customData.userName | "";
+        document.querySelector("#form-user-email").value = customData.email | "";
     }
     performUserFormValidation();
 }
