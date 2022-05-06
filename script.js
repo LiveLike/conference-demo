@@ -27,7 +27,7 @@ const refreshProfileData = () => {
     }
 }
 
-const handleUpdateUserProfile = (e) => {
+const handleCreateUserProfile = (e) => {
     updateUserProfile({
         nickname: document.querySelector("#form-user-nickname").value,
         email: document.querySelector("#form-user-email").value,
@@ -113,11 +113,10 @@ const setupLeaderboard = (program) => {
 
 const showProfileTab = () => {
     document.getElementById("profile-tab-label").click();
-    localStorage.setItem("HasAlreadyVisited", true);
 };
 
-const isLoggedIn = () => {
-    var value = localStorage.getItem("HasAlreadyVisited");
+const profileIsValid = () => {
+    var value = localStorage.getItem("ProfileIsValid");
     if (value) {
         return true;
     } else {
@@ -126,7 +125,7 @@ const isLoggedIn = () => {
 };
 
 const showProfileTabIfFirstTimeVisiting = () => {
-    if (!isLoggedIn()) {
+    if (!profileIsValid()) {
         showProfileTab();
     }
 }

@@ -87,7 +87,7 @@ body {
 
 .profile-input {
   border-width: 2px;
-  border-color:#00aaff;
+  border-color: #00aaff;
   border-radius: 20px;
 }
 
@@ -101,4 +101,12 @@ body {
 
 .vote-button {
   background-color: #00aaff !important;
+}
+
+.small-text {
+  font-size: 0.6em;
+}
+
+.red-text {
+  color: red !important;
 }
