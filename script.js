@@ -119,12 +119,36 @@ const profileIsValid = () => {
     var value = localStorage.getItem("ProfileIsValid");
     if (value) {
         return true;
-    } else {
-        return false;
     }
+
+    //var nickname = LiveLike.userProfile;
+    //var custom_data = LiveLike.userProfile.custom_data;
+    //var customData = JSON.parse(custom_data);
+    //if (customData.userName && customData.email && nickname) {
+    //    return true;
+    //}
+
+    var userName = document.querySelector("#form-user-userName").value;
+    var email = document.querySelector("#form-user-email").value;
+    var nickname = document.querySelector("#form-user-nickName").value;
+
+    if (userName && email && nickname) {
+        return true;
+    }
+
+    return false;
 };
 
+const performUserFormValidation = () => {
+    if (profileIsValid()) {
+        document.querySelector("#createProfileButton").removeAttribute("disabled");
+    } else {
+        document.querySelector("#createProfileButton").setAttribute("disabled", "disabled");
+    }
+}
+
 const showProfileTabIfFirstTimeVisiting = () => {
+    performUserFormValidation();
     if (!profileIsValid()) {
         showProfileTab();
     }
