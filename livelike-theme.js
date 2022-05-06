@@ -86,6 +86,22 @@ const globalWidgetStyle = {
             format: "fill"
         },
     },
+    sideABar: {
+        background: {
+            color: "00aaff",
+            format: "fill"
+        },
+        fontColor: "ffffff",
+        margin: [10,0,0,0]
+    },
+    sideBBar: {
+        background: {
+            color: "575757",
+            format: "fill"
+        },
+        fontColor: "ffffff",
+        margin: [10,0,0,0]
+    },
 };
 
 const setupTheme = () => {
