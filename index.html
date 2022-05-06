@@ -14,11 +14,11 @@
 <body>
   <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+      <li class="nav-item" id="widget-nav-tab" role="presentation">
+        <button class="nav-link active" id="widget-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
           role="tab" aria-controls="home" aria-selected="true"><b>Widgets</b></button>
       </li>
-      <li class="nav-item" role="presentation">
+      <li class="nav-item" id="leaderboard-nav-tab" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
           role="tab" aria-controls="profile" aria-selected="false"><b>Leaderboard</b></button>
       </li>
@@ -53,17 +53,17 @@
           <form autocomplete="off">
             <p>Welcome to the LiveLive Stadium Experience. <br />Create your profile to play.</p>
             <label class="form-label" for="form-user-fullName"><b>Full Name</b></label>
-            <input onkeydown="performUserFormValidation()" type="text" id="form-user-fullName" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-fullName" class="profile-input form-control" />
             <br />
             <label class="form-label" for="form-user-userName"><b>User Name</b><b class="red-text">*</b></label>
-            <input onkeydown="performUserFormValidation()" type="text" id="form-user-userName" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-userName" class="profile-input form-control" />
             <br />
             <label class="form-label" for="form-user-email"><b>Email</b><b class="red-text">*</b></label>
-            <input onkeydown="performUserFormValidation()" type="email" id="form-user-email" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="email" id="form-user-email" class="profile-input form-control" />
             <p class="small-text">Enter your email for a chance to win a €/$/£100 Amazon voucher if you are top of the
               leaderboard when SportsInnovation ends. The winner will be contacted post-event.</p>
             <label class="form-label" for="form-user-nickName"><b>Nickname</b><b class="red-text">*</b></label>
-            <input onkeydown="performUserFormValidation()" type="text" id="form-user-nickName" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-nickName" class="profile-input form-control" />
           </form>
           <br />
           <button class="btn btn-default" id="createProfileButton" onclick="handleCreateUserProfile()">Create Profile</button>

@@ -1,39 +1,49 @@
-const updateUserProfile = ({ nickname, email, firstName, lastName }) => {
+const showAllTabs = () => {
+    document.querySelector("#widget-nav-tab").style.display = "block";
+    document.querySelector("#leaderboard-nav-tab").style.display = "block";
+    document.querySelector("#widget-tab").click();
+};
+
+const updateUserProfile = ({ fullName, userName, email, nickname }) => {
     LiveLike.updateUserProfile({
         accessToken: LiveLike.userProfile.access_token,
         options: {
             nickname: nickname,
             custom_data: JSON.stringify({
+                fullName: fullName,
+                userName: userName,
                 email: email,
-                firstName: firstName,
-                lastName: lastName
             })
         }
     }).then(res => {
         refreshProfileData();
+        showAllTabs();
     }).catch(err => {
         console.warn(err);
     });
 };
 
 const refreshProfileData = () => {
-    document.querySelector("#profile-tab-label").innerHTML = `Profile(${LiveLike.userProfile.nickname})`;
-    document.querySelector("#form-user-nickname").value = LiveLike.userProfile.nickname;
+    document.querySelector("#profile-tab-label").innerHTML = `Profile`;
+    document.querySelector("#form-user-nickName").value = LiveLike.userProfile.nickname;
     var customData = JSON.parse(LiveLike.userProfile.custom_data);
     if (customData) {
+        document.querySelector("#form-user-fullName").value = customData.fullName;
+        document.querySelector("#form-user-userName").value = customData.userName;
         document.querySelector("#form-user-email").value = customData.email;
-        document.querySelector("#form-user-firstname").value = customData.firstName;
-        document.querySelector("#form-user-lastname").value = customData.lastName;
     }
+    performUserFormValidation();
 }
 
 const handleCreateUserProfile = (e) => {
-    updateUserProfile({
-        nickname: document.querySelector("#form-user-nickname").value,
-        email: document.querySelector("#form-user-email").value,
-        firstName: document.querySelector("#form-user-firstname").value,
-        lastName: document.querySelector("#form-user-lastname").value,
-    });
+    if (profileIsValid()) {
+        updateUserProfile({
+            fullName: document.querySelector("#form-user-fullName").value,
+            userName: document.querySelector("#form-user-userName").value,
+            email: document.querySelector("#form-user-email").value,
+            nickname: document.querySelector("#form-user-nickName").value,
+        });
+    }
 };
 
 const setupLeaderboard = (program) => {
@@ -112,6 +122,9 @@ const setupLeaderboard = (program) => {
 };
 
 const showProfileTab = () => {
+    document.querySelector("#widget-nav-tab").style.display = "none";
+    document.querySelector("#leaderboard-nav-tab").style.display = "none";
+
     document.getElementById("profile-tab-label").click();
 };
 
@@ -133,6 +146,7 @@ const profileIsValid = () => {
     var nickname = document.querySelector("#form-user-nickName").value;
 
     if (userName && email && nickname) {
+        localStorage.setItem("ProfileIsValid", true);
         return true;
     }
 
