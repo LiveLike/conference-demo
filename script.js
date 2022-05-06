@@ -16,6 +16,7 @@ const updateUserProfile = ({ fullName, userName, email, nickname }) => {
             })
         }
     }).then(res => {
+        localStorage.setItem("ProfileIsValid", true);
         refreshProfileData();
         showAllTabs();
     }).catch(err => {
@@ -28,9 +29,16 @@ const refreshProfileData = () => {
     document.querySelector("#form-user-nickName").value = LiveLike.userProfile.nickname;
     var customData = JSON.parse(LiveLike.userProfile.custom_data);
     if (customData) {
-        document.querySelector("#form-user-fullName").value = customData.fullName | "";
-        document.querySelector("#form-user-userName").value = customData.userName | "";
-        document.querySelector("#form-user-email").value = customData.email | "";
+        if (customData.fullName) {
+            document.querySelector("#form-user-fullName").value = customData.fullName;
+        }
+        if (customData.userName) {
+
+            document.querySelector("#form-user-userName").value = customData.userName;
+        }
+        if (customData.email) {
+            document.querySelector("#form-user-email").value = customData.email;
+        }
     }
     performUserFormValidation();
 }
@@ -146,7 +154,6 @@ const profileIsValid = () => {
     var nickname = document.querySelector("#form-user-nickName").value;
 
     if (userName && email && nickname) {
-        localStorage.setItem("ProfileIsValid", true);
         return true;
     }
 
