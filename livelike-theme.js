@@ -176,6 +176,9 @@ const setupTheme = () => {
             cheerMeter: globalWidgetStyle,
             alert: globalWidgetStyle,
             videoAlert: globalWidgetStyle,
+            pollFollowUp:globalWidgetStyle,
+            quizFollowUp:globalWidgetStyle,
+            predictionFollowUp:globalWidgetStyle
         }
     });
 };
