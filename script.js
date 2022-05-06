@@ -4,14 +4,13 @@ const showAllTabs = () => {
     document.querySelector("#widget-tab").click();
 };
 
-const updateUserProfile = ({ fullName, userName, email, nickname }) => {
+const updateUserProfile = ({ fullName, email, nickname }) => {
     LiveLike.updateUserProfile({
         accessToken: LiveLike.userProfile.access_token,
         options: {
             nickname: nickname,
             custom_data: JSON.stringify({
                 fullName: fullName,
-                userName: userName,
                 email: email,
             })
         }
@@ -32,10 +31,6 @@ const refreshProfileData = () => {
         if (customData.fullName) {
             document.querySelector("#form-user-fullName").value = customData.fullName;
         }
-        if (customData.userName) {
-
-            document.querySelector("#form-user-userName").value = customData.userName;
-        }
         if (customData.email) {
             document.querySelector("#form-user-email").value = customData.email;
         }
@@ -47,7 +42,6 @@ const handleCreateUserProfile = (e) => {
     if (profileIsValid()) {
         updateUserProfile({
             fullName: document.querySelector("#form-user-fullName").value,
-            userName: document.querySelector("#form-user-userName").value,
             email: document.querySelector("#form-user-email").value,
             nickname: document.querySelector("#form-user-nickName").value,
         });
@@ -142,18 +136,11 @@ const profileIsValid = () => {
         return true;
     }
 
-    //var nickname = LiveLike.userProfile;
-    //var custom_data = LiveLike.userProfile.custom_data;
-    //var customData = JSON.parse(custom_data);
-    //if (customData.userName && customData.email && nickname) {
-    //    return true;
-    //}
-
-    var userName = document.querySelector("#form-user-userName").value;
-    var email = document.querySelector("#form-user-email").value;
+    var fullName =  document.querySelector("#form-user-fullName").value;
     var nickname = document.querySelector("#form-user-nickName").value;
+    var email = document.querySelector("#form-user-email").value;
 
-    if (userName && email && nickname) {
+    if (fullName && email && nickname) {
         return true;
     }
 

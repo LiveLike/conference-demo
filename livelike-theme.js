@@ -81,6 +81,8 @@ const setupTheme = () => {
             prediction: globalWidgetStyle,
             imageSlider: globalWidgetStyle,
             cheerMeter: globalWidgetStyle,
+            alert:globalWidgetStyle,
+            videoAlert:globalWidgetStyle,
         }
     });
 };

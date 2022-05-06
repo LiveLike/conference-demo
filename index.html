@@ -52,18 +52,16 @@
         <div class="profile-container">
           <form autocomplete="off">
             <p>Welcome to the LiveLive Stadium Experience. <br />Create your profile to play.</p>
-            <label class="form-label" for="form-user-fullName"><b>Full Name</b></label>
+            <label class="form-label" for="form-user-fullName"><b>Full Name</b><b class="red-text">*</b></label>
             <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-fullName" class="profile-input form-control" />
             <br />
-            <label class="form-label" for="form-user-userName"><b>User Name</b><b class="red-text">*</b></label>
-            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-userName" class="profile-input form-control" />
+            <label class="form-label" for="form-user-nickName"><b>Username</b><b class="red-text">*</b></label>
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-nickName" class="profile-input form-control" />
             <br />
             <label class="form-label" for="form-user-email"><b>Email</b><b class="red-text">*</b></label>
             <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="email" id="form-user-email" class="profile-input form-control" />
             <p class="small-text">Enter your email for a chance to win a €/$/£100 Amazon voucher if you are top of the
               leaderboard when SportsInnovation ends. The winner will be contacted post-event.</p>
-            <label class="form-label" for="form-user-nickName"><b>Nickname</b><b class="red-text">*</b></label>
-            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-nickName" class="profile-input form-control" />
           </form>
           <br />
           <button class="btn btn-default" id="createProfileButton" onclick="handleCreateUserProfile()">Create Profile</button>
