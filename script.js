@@ -107,11 +107,7 @@ const setupLeaderboard = (program) => {
         });
     };
 
-    const leaderboardId =
-        program.leaderboards &&
-        program.leaderboards.length > 3 &&
-        program.leaderboards[3].id;
-
+    const leaderboardId = "9af81022-8a85-4511-bb7d-2b74934efb93";
     if (leaderboardId) {
         buildLeaderboard(leaderboardId);
         buildProfileRank(leaderboardId);
