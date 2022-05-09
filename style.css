@@ -100,6 +100,7 @@ body {
 }
 
 .vote-button {
+  color:white !important;
   background-color: #003E77 !important;
 }
 
