@@ -1,6 +1,7 @@
 const showAllTabs = () => {
     document.querySelector("#widget-nav-tab").style.display = "block";
     document.querySelector("#leaderboard-nav-tab").style.display = "block";
+    document.getElementById("profile-tab-label").style.display = "none";
     document.querySelector("#widget-tab").click();
 };
 
@@ -163,6 +164,8 @@ const showProfileTabIfFirstTimeVisiting = () => {
     performUserFormValidation();
     if (!profileIsValid()) {
         showProfileTab();
+    } else {
+        document.getElementById("profile-tab-label").style.display = "none"
     }
 }
 
