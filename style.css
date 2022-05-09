@@ -71,7 +71,7 @@ body {
 }
 
 .leaderboard-table>thead {
-  color: #00aaff;
+  color: #003E77;
 }
 
 .profile-container {
@@ -82,12 +82,12 @@ body {
 
 .profile-container>button {
   color: black;
-  background-color: #00aaff;
+  background-color: #003E77;
 }
 
 .profile-input {
   border-width: 2px;
-  border-color: #00aaff;
+  border-color: #003E77;
   border-radius: 20px;
 }
 
@@ -96,11 +96,11 @@ body {
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  color: #00aaff;
+  color: #003E77;
 }
 
 .vote-button {
-  background-color: #00aaff !important;
+  background-color: #003E77 !important;
 }
 
 livelike-footer {
@@ -109,7 +109,7 @@ livelike-footer {
 
 livelike-option {
   border-width: 1px !important;
-  border-color: #00aaff !important;
+  border-color: #003E77 !important;
   margin-top: 1px !important;
   margin-bottom: 1px !important;
 }

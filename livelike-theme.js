@@ -9,17 +9,17 @@ var transparentPercentage = {
 
 const globalWidgetStyle = {
     header: {
-        borderColor: "00aaff",
+        borderColor: "003E77",
         borderWidth: 1,
         fontColor: "ffffff",
         background: {
-            color: "00aaff",
+            color: "003E77",
             format: "fill"
         },
         margin: [10, 0, 0, 0],
     },
     body: {
-        borderColor: "00aaff",
+        borderColor: "003E77",
         borderWidth: 1,
         fontColor: "000000",
         background: {
@@ -35,7 +35,7 @@ const globalWidgetStyle = {
         }
     },
     selectedOption: {
-        borderColor: "00aaff",
+        borderColor: "003E77",
         borderWidth: 1,
         background: {
             color: "ffffff",
@@ -43,7 +43,7 @@ const globalWidgetStyle = {
         },
     },
     correctOptionBar: {
-        borderColor: "00aaff",
+        borderColor: "003E77",
         borderWidth: 1,
         background: {
             colors: "dedede",
@@ -51,7 +51,7 @@ const globalWidgetStyle = {
         },
     },
     incorrectOptionBar: {
-        borderColor: "00aaff",
+        borderColor: "003E77",
         borderWidth: 1,
         background: {
             colors: "dedede",
@@ -59,7 +59,7 @@ const globalWidgetStyle = {
         },
     },
     unselectedOptionBar: {
-        borderColor: "00aaff",
+        borderColor: "003E77",
         borderWidth: 1,
         background: {
             colors: "dedede",
@@ -82,13 +82,13 @@ const globalWidgetStyle = {
     },
     interactiveTrackRight: {
         background: {
-            color: "44bbff",
+            color: "007AC4",
             format: "fill"
         },
     },
     sideABar: {
         background: {
-            color: "00aaff",
+            color: "003E77",
             format: "fill"
         },
         fontColor: "ffffff",
@@ -110,17 +110,17 @@ const setupTheme = () => {
             poll: globalWidgetStyle,
             quiz: {
                 header: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "ffffff",
                     background: {
-                        color: "00aaff",
+                        color: "003E77",
                         format: "fill"
                     },
                     margin: [10, 0, 0, 0],
                 },
                 body: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "000000",
                     background: {
@@ -136,7 +136,7 @@ const setupTheme = () => {
                     }
                 },
                 selectedOption: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         color: "ffffff",
@@ -144,7 +144,7 @@ const setupTheme = () => {
                     },
                 },
                 correctOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -152,7 +152,7 @@ const setupTheme = () => {
                     },
                 },
                 incorrectOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -160,7 +160,7 @@ const setupTheme = () => {
                     },
                 },
                 unselectedOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -194,17 +194,17 @@ const setupTheme = () => {
             },
             prediction: {
                 header: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "ffffff",
                     background: {
-                        color: "00aaff",
+                        color: "003E77",
                         format: "fill"
                     },
                     margin: [10, 0, 0, 0],
                 },
                 body: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "000000",
                     background: {
@@ -220,7 +220,7 @@ const setupTheme = () => {
                     }
                 },
                 selectedOption: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         color: "ffffff",
@@ -228,7 +228,7 @@ const setupTheme = () => {
                     },
                 },
                 correctOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -236,7 +236,7 @@ const setupTheme = () => {
                     },
                 },
                 incorrectOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -244,7 +244,7 @@ const setupTheme = () => {
                     },
                 },
                 unselectedOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -283,17 +283,17 @@ const setupTheme = () => {
             pollFollowUp: globalWidgetStyle,
             quizFollowUp: {
                 header: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "ffffff",
                     background: {
-                        color: "00aaff",
+                        color: "003E77",
                         format: "fill"
                     },
                     margin: [10, 0, 0, 0],
                 },
                 body: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "000000",
                     background: {
@@ -309,7 +309,7 @@ const setupTheme = () => {
                     }
                 },
                 selectedOption: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         color: "ffffff",
@@ -317,7 +317,7 @@ const setupTheme = () => {
                     },
                 },
                 correctOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -325,7 +325,7 @@ const setupTheme = () => {
                     },
                 },
                 incorrectOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -333,7 +333,7 @@ const setupTheme = () => {
                     },
                 },
                 unselectedOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -367,17 +367,17 @@ const setupTheme = () => {
             },
             predictionFollowUp: {
                 header: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "ffffff",
                     background: {
-                        color: "00aaff",
+                        color: "003E77",
                         format: "fill"
                     },
                     margin: [10, 0, 0, 0],
                 },
                 body: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     fontColor: "000000",
                     background: {
@@ -393,7 +393,7 @@ const setupTheme = () => {
                     }
                 },
                 selectedOption: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         color: "ffffff",
@@ -401,7 +401,7 @@ const setupTheme = () => {
                     },
                 },
                 correctOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -409,7 +409,7 @@ const setupTheme = () => {
                     },
                 },
                 incorrectOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
@@ -417,7 +417,7 @@ const setupTheme = () => {
                     },
                 },
                 unselectedOptionBar: {
-                    borderColor: "00aaff",
+                    borderColor: "003E77",
                     borderWidth: 1,
                     background: {
                         colors: "dedede",
