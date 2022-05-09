@@ -89,18 +89,26 @@ const setupLeaderboard = (program) => {
             // Get current profile results
             const currentProfileEntry = lb.entries.find(x => x.profile_id == LiveLike.userProfile.id);
             if (currentProfileEntry) {
-                currentProfileEntry.nickname = "Me";
-                lb.entries.unshift(currentProfileEntry);
+                if (currentProfileEntry.rank >= 10) {
+                    lb.entries.unshift(currentProfileEntry);
+                }
+            } else {
+                lb.entries.unshift({ profile_id: LiveLike.userProfile.id, rank: "", score: 0 });
             }
+
             // Loop through leaderboard entries to create list items for each entry
             lb.entries = lb.entries.slice(0, 10);
             lb.entries.forEach((entry) => {
                 const entryRow = document.createElement("tr");
                 entryRow.setAttribute("class", "list-item");
+                if (entry.profile_id === LiveLike.userProfile.id) {
+                    entry.profile_nickname = "Me";
+                    entryRow.setAttribute("class", "list-item current-profile-list-item");
+                }
                 entryRow.innerHTML = `
-            <td class="rank">${entry.rank}</td>
-            <td class="name">${entry.profile_nickname}</td>
-            <td class="pts">${entry.score}</td>
+<td class="rank">${entry.rank}</td>
+<td class="name">${entry.profile_nickname}</td>
+<td class="pts">${entry.score}</td>
           `;
                 lbContainer.appendChild(entryRow);
             });
@@ -132,7 +140,7 @@ const profileIsValid = () => {
         return true;
     }
 
-    var fullName =  document.querySelector("#form-user-fullName").value;
+    var fullName = document.querySelector("#form-user-fullName").value;
     var nickname = document.querySelector("#form-user-nickName").value;
     var email = document.querySelector("#form-user-email").value;
 

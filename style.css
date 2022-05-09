@@ -156,3 +156,7 @@ livelike-option {
   padding-top: 5px;
   font-size: 1em;
 }
+
+.current-profile-list-item {
+  background-color: #F2F3F7;
+}
