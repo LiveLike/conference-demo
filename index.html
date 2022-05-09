@@ -12,6 +12,28 @@
 </head>
 
 <body>
+  <div class="container header-container">
+    <p>Welcome to the SportsInnovation Conference Experience</p>
+    <div class="header-row">
+      <div class="header-row header-row-left">
+        Provided by&nbsp;
+      </div>
+      <div class="header-row header-row-right">
+        <img height="20px" src="livelike-logo.png" />
+      </div>
+      <br />
+    </div>
+  </div>
+  <div class="container  header-user-info">
+    <div class="header-row">
+      <div class="header-row header-row-right">
+        <p>asdasd</p>
+      </div>
+      <div class="header-row header-row-left">
+        <p>asd</p>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" id="widget-nav-tab" role="presentation">
@@ -53,18 +75,22 @@
           <form autocomplete="off">
             <p>Welcome to the LiveLive Stadium Experience. <br />Create your profile to play.</p>
             <label class="form-label" for="form-user-fullName"><b>Full Name</b><b class="red-text">*</b></label>
-            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-fullName" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text"
+              id="form-user-fullName" class="profile-input form-control" />
             <br />
             <label class="form-label" for="form-user-nickName"><b>Username</b><b class="red-text">*</b></label>
-            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text" id="form-user-nickName" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="text"
+              id="form-user-nickName" class="profile-input form-control" />
             <br />
             <label class="form-label" for="form-user-email"><b>Email</b><b class="red-text">*</b></label>
-            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="email" id="form-user-email" class="profile-input form-control" />
+            <input onchange="performUserFormValidation()" onkeydown="performUserFormValidation()" type="email"
+              id="form-user-email" class="profile-input form-control" />
             <p class="small-text">Enter your email for a chance to win a €/$/£100 Amazon voucher if you are top of the
               leaderboard when SportsInnovation ends. The winner will be contacted post-event.</p>
           </form>
           <br />
-          <button class="btn btn-default" id="createProfileButton" onclick="handleCreateUserProfile()">Create My Profile</button>
+          <button class="btn btn-default" id="createProfileButton" onclick="handleCreateUserProfile()">Create My
+            Profile</button>
           <p class="small-text">*mandatory fields</p>
         </div>
       </div>
