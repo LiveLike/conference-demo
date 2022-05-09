@@ -113,6 +113,9 @@ const setupLeaderboard = (program) => {
           `;
                 lbContainer.appendChild(entryRow);
             });
+
+            //update profile stats on widget screen
+            updateProfileInfo();
         });
     };
 
@@ -127,6 +130,11 @@ const setupLeaderboard = (program) => {
         });
     }
 };
+
+const updateProfileInfo = () => {
+    document.querySelector("#user-profile-nickname").innerHTML = LiveLike.userProfile.nickname;
+    document.querySelector("#user-profile-points").innerHTML = `${LiveLike.userProfile.points} Pts.`;
+}
 
 const showProfileTab = () => {
     document.querySelector("#widget-nav-tab").style.display = "none";
