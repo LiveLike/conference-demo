@@ -191,6 +191,13 @@ const addTimerToWidgets = () => {
   let send15sTimer = ({ widget }) => getMilliseconds(widget.timeout);
   widgetsContainer && (widgetsContainer.overRideTimer = send15sTimer);
   widgetsContainer.programid = '2708f001-383d-418a-912a-391b466e3d89';
+  document.addEventListener('rankchange', (data) => {
+    console.log(data.detail.rewards);
+    if (data.detail.rewards.length) {
+      const ptsEl = document.querySelector('#user-profile-points');
+      ptsEl.classList.add('bounce');
+    }
+  });
 };
 
 const init = (clientId, programId) => {
