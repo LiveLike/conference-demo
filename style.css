@@ -114,7 +114,7 @@ livelike-option {
   margin-bottom: 1px !important;
 }
 
-:not([incorrect], [correct]){
+livelike-option:not([incorrect], [correct]){
   border-color: #003e77 !important;
 }
 
