@@ -110,9 +110,12 @@ livelike-footer {
 
 livelike-option {
   border-width: 1px !important;
-  border-color: #003e77 !important;
   margin-top: 1px !important;
   margin-bottom: 1px !important;
+}
+
+:not([incorrect], [correct]){
+  border-color: #003e77 !important;
 }
 
 .small-text {
