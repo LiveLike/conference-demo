@@ -170,7 +170,7 @@ const showProfileTabIfFirstTimeVisiting = () => {
   if (!profileIsValid()) {
     showProfileTab();
   } else {
-    document.getElementById('profile-tab-label').style.display = 'none';
+    document.getElementById('profile-nav-tab').style.display = 'none';
   }
 };
 
