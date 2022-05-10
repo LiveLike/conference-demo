@@ -196,6 +196,7 @@ const addTimerToWidgets = () => {
     if (data.detail.rewards.length) {
       const ptsEl = document.querySelector('#user-profile-points');
       ptsEl.classList.add('bounce');
+      setTimeout(() => ptsEl.classList.remove('bounce'), 1200);
     }
   });
 };
