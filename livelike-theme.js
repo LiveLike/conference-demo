@@ -4,7 +4,7 @@ var transparentPercentage = {
     color: '00000000',
     format: 'fill',
   },
-  fontColor: '003E77',
+  fontColor: '00000000',
 };
 
 const globalWidgetStyle = {
