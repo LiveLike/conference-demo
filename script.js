@@ -129,6 +129,7 @@ const setupLeaderboard = (program) => {
     document.addEventListener('rankchange', updateLeaderboardData);
     document.addEventListener('beforewidgetdetached', updateLeaderboardData);
   }
+  updateLeaderboardData();
 };
 
 const showProfileTab = () => {
