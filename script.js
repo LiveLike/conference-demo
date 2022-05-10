@@ -50,31 +50,18 @@ const handleCreateUserProfile = (e) => {
 };
 
 const setupLeaderboard = (program) => {
-    const buildProfileRank = (leaderboardId) =>
-        LiveLike.getLeaderboardProfileRank({
+    const buildProfileRank = (leaderboardId) =>{
+        return LiveLike.getLeaderboardProfileRank({
             leaderboardId,
             profileId: LiveLike.userProfile.id,
         })
             .then((profileRank) => {
                 // If rank and points element already exist, update their values
-                const rankEl = document.querySelector(".profile-list-item > .rank");
-                const ptsEl = document.querySelector(".profile-list-item > .pts");
-                if (ptsEl && rankEl) {
-                    ptsEl.innerHTML = `${profileRank.score} pts`;
-                    rankEl.innerHTML = `#${profileRank.rank}`;
-                } else {
-                    // If rank and points don't already exist, create the elements and attach them
-                    const stats = document.querySelector(".profile-stats");
-                    const rankItem = document.createElement("li");
-                    rankItem.setAttribute("class", "profile-list-item");
-                    rankItem.innerHTML = `
-              <div class="rank">#${profileRank.rank}</div>
-              <div class="pts">${profileRank.score} pts</div>
-            `;
-                    stats.appendChild(rankItem);
-                }
+                const ptsEl = document.querySelector("#user-profile-points");
+                ptsEl.innerHTML = `${profileRank.score} Pts.`;
             })
             .catch(() => console.log("Current user not a part of leaderboard yet."));
+        }
 
     const buildLeaderboard = (leaderboardId) => {
         LiveLike.getLeaderboardEntries({
@@ -113,28 +100,27 @@ const setupLeaderboard = (program) => {
           `;
                 lbContainer.appendChild(entryRow);
             });
-
-            //update profile stats on widget screen
-            updateProfileInfo();
         });
     };
 
     const leaderboardId = "9af81022-8a85-4511-bb7d-2b74934efb93";
-    if (leaderboardId) {
+
+    const updateLeaderboardData = () => {
         buildLeaderboard(leaderboardId);
         buildProfileRank(leaderboardId);
+    }
+    if (leaderboardId) {
+
         // When a widget is dismissed, we update the leaderboard to show updated ranks and points
-        document.addEventListener("beforewidgetdetached", () => {
-            buildLeaderboard(leaderboardId);
-            buildProfileRank(leaderboardId);
-        });
+        document.addEventListener("vote", updateLeaderboardData);
+        document.addEventListener("answer", updateLeaderboardData);
+        document.addEventListener("prediction", updateLeaderboardData);
+        document.addEventListener("cheer", updateLeaderboardData);
+        document.addEventListener("slider", updateLeaderboardData);
+        document.addEventListener("rankchange", updateLeaderboardData);
+        document.addEventListener("beforewidgetdetached", updateLeaderboardData);
     }
 };
-
-const updateProfileInfo = () => {
-    document.querySelector("#user-profile-nickname").innerHTML = LiveLike.userProfile.nickname;
-    document.querySelector("#user-profile-points").innerHTML = `${LiveLike.userProfile.points} Pts.`;
-}
 
 const showProfileTab = () => {
     document.querySelector("#widget-nav-tab").style.display = "none";
@@ -193,5 +179,6 @@ const initLiveLike = (clientId, program) => {
         showProfileTabIfFirstTimeVisiting();
         setupLeaderboard(program);
         refreshProfileData();
+        document.querySelector("#user-profile-nickname").innerHTML = LiveLike.userProfile.nickname;
     });
 }

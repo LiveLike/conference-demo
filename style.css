@@ -52,12 +52,12 @@ body {
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
 }
 
-.modal>input {
+.modal > input {
   font-size: xx-large;
   width: 80%;
 }
 
-.modal>button {
+.modal > button {
   font-size: xx-large;
   width: 80%;
 }
@@ -70,8 +70,8 @@ body {
   width: 100%;
 }
 
-.leaderboard-table>thead {
-  color: #003E77;
+.leaderboard-table > thead {
+  color: #003e77;
 }
 
 .profile-container {
@@ -80,14 +80,14 @@ body {
   background-color: white;
 }
 
-.profile-container>button {
+.profile-container > button {
   color: black;
-  background-color: #003E77;
+  background-color: #003e77;
 }
 
 .profile-input {
   border-width: 2px;
-  border-color: #003E77;
+  border-color: #003e77;
   border-radius: 20px;
 }
 
@@ -96,12 +96,12 @@ body {
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  color: #003E77;
+  color: #003e77;
 }
 
 .vote-button {
-  color:white !important;
-  background-color: #003E77 !important;
+  color: white !important;
+  background-color: #003e77 !important;
 }
 
 livelike-footer {
@@ -110,7 +110,7 @@ livelike-footer {
 
 livelike-option {
   border-width: 1px !important;
-  border-color: #003E77 !important;
+  border-color: #003e77 !important;
   margin-top: 1px !important;
   margin-bottom: 1px !important;
 }
@@ -124,7 +124,7 @@ livelike-option {
 }
 
 .header-container {
-  background-color: #003E77;
+  background-color: #003e77;
   color: white;
   text-align: center;
   font-size: 20px;
@@ -134,6 +134,8 @@ livelike-option {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .header-row .header-row-left {
@@ -153,11 +155,20 @@ livelike-option {
 }
 
 .header-user-info {
-  background-color: #F2F3F7;
+  background-color: #f2f3f7;
   padding-top: 5px;
   font-size: 1em;
 }
 
 .current-profile-list-item {
-  background-color: #F2F3F7;
+  border: 2px solid #007ac4;
+}
+.leaderboard-table tbody {
+  background-color: #f2f3f7;
+
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 8px;
 }
