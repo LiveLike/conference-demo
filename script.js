@@ -52,7 +52,7 @@ const handleCreateUserProfile = (e) => {
   }
 };
 
-const setupLeaderboard = (program) => {
+const setupLeaderboard = (leaderboardId) => {
   const buildProfileRank = (leaderboardId) => {
     return LiveLike.getLeaderboardProfileRank({
       leaderboardId,
@@ -113,7 +113,6 @@ const setupLeaderboard = (program) => {
     });
   };
 
-  const leaderboardId = '9af81022-8a85-4511-bb7d-2b74934efb93';
 
   const updateLeaderboardData = () => {
     buildLeaderboard(leaderboardId);
@@ -121,13 +120,17 @@ const setupLeaderboard = (program) => {
   };
   if (leaderboardId) {
     // When a widget is dismissed, we update the leaderboard to show updated ranks and points
-    document.addEventListener('vote', updateLeaderboardData);
-    document.addEventListener('answer', updateLeaderboardData);
-    document.addEventListener('prediction', updateLeaderboardData);
-    document.addEventListener('cheer', updateLeaderboardData);
-    document.addEventListener('slider', updateLeaderboardData);
-    document.addEventListener('rankchange', updateLeaderboardData);
-    document.addEventListener('beforewidgetdetached', updateLeaderboardData);
+    const evts = ['vote', 'answer', 'prediction', 'cheer', 'slider', 'beforewidgetdetached'];
+    evts.forEach(evt => document.addEventListener(evt, updateLeaderboardData));
+
+    document.addEventListener('rankchange', (data) => {
+        updateLeaderboardData();
+        if (data.detail.rewards.length) {
+          const ptsEl = document.querySelector('#user-profile-points');
+          ptsEl.classList.add('bounce');
+          setTimeout(() => ptsEl.classList.remove('bounce'), 1200);
+        }
+    });
   }
   updateLeaderboardData();
 };
@@ -140,14 +143,14 @@ const showProfileTab = () => {
 };
 
 const profileIsValid = () => {
-  var value = localStorage.getItem('ProfileIsValid');
+  const value = localStorage.getItem('ProfileIsValid');
   if (value) {
     return true;
   }
 
-  var fullName = document.querySelector('#form-user-fullName').value;
-  var nickname = document.querySelector('#form-user-nickName').value;
-  var email = document.querySelector('#form-user-email').value;
+  const fullName = document.querySelector('#form-user-fullName').value;
+  const nickname = document.querySelector('#form-user-nickName').value;
+  const email = document.querySelector('#form-user-email').value;
 
   if (fullName && email && nickname) {
     return true;
@@ -175,50 +178,17 @@ const showProfileTabIfFirstTimeVisiting = () => {
   }
 };
 
-const getMilliseconds = (duration) => {
-  const regex =
-    /(-)?P(?:([.,\d]+)Y)?(?:([.,\d]+)M)?(?:([.,\d]+)W)?(?:([.,\d]+)D)?(?:T(?:([.,\d]+)H)?(?:([.,\d]+)M)?(?:([.,\d]+)S)?)?/;
-  const m = duration.match(regex);
-  const s = m[8] && m[8] * 1000;
-  const mm = m[7] && m[7] * 60000;
-  const h = m[6] && m[6] * 3600000;
-  const d = m[5] && m[5] * 86400000;
-  return s + mm + h + d;
-};
-
-const addTimerToWidgets = () => {
-  const widgetsContainer = document.querySelector('livelike-widgets');
-  let send15sTimer = ({ widget }) => getMilliseconds(widget.timeout);
-  widgetsContainer && (widgetsContainer.overRideTimer = send15sTimer);
-  widgetsContainer.programid = '2708f001-383d-418a-912a-391b466e3d89';
-  document.addEventListener('rankchange', (data) => {
-    console.log(data.detail.rewards);
-    if (data.detail.rewards.length) {
-      const ptsEl = document.querySelector('#user-profile-points');
-      ptsEl.classList.add('bounce');
-      setTimeout(() => ptsEl.classList.remove('bounce'), 1200);
-    }
-  });
-};
-
-const init = (clientId, programId) => {
-  fetch('https://cf-blast.livelikecdn.com/api/v1/programs/' + programId + '/')
-    .then((p) => p.json())
-    .then((program) => {
-      return initLiveLike(clientId, program);
-    });
-};
-
-const initLiveLike = (clientId, program) => {
-  LiveLike.init({
-    clientId: clientId,
-  }).then((profile) => {
-    setupTheme();
-    showProfileTabIfFirstTimeVisiting();
-    addTimerToWidgets();
-    setupLeaderboard(program);
-    refreshProfileData();
-    document.querySelector('#user-profile-nickname').innerHTML =
-      LiveLike.userProfile.nickname;
-  });
+const init = (clientId, programId, leaderboardId) => {
+    LiveLike.init({
+        clientId: clientId,
+      }).then(() => {
+        setupTheme();
+        showProfileTabIfFirstTimeVisiting();
+        setupLeaderboard(leaderboardId);
+        refreshProfileData();
+        const widgetsContainer = document.querySelector('livelike-widgets');
+        widgetsContainer.programid = programId;
+        document.querySelector('#user-profile-nickname').innerHTML =
+          LiveLike.userProfile.nickname;
+      });
 };

@@ -54,8 +54,7 @@
     <div class="tab-content">
       <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="livelike-widgets-container">
-          <livelike-widgets mode="interactive-timeline">
-          </livelike-widgets>
+          <livelike-widgets mode="interactive-timeline"></livelike-widgets>
         </div>
       </div>
       <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -107,9 +106,15 @@
   <script src="livelike-theme.js"></script>
   <script src="script.js"></script>
   <script>
-    const programId = "2708f001-383d-418a-912a-391b466e3d89";
     const clientId = "Ux0PiwxhZ02A7R69h9nhSDbbkwZ0pycGORLwoSpR";
-    init(clientId, programId);
+
+    const programId = "2708f001-383d-418a-912a-391b466e3d89";
+    const leaderboardId = '9af81022-8a85-4511-bb7d-2b74934efb93';
+
+    // const programId = "078dac72-554e-4f52-8db4-fd592e59439d"
+    // const leaderboardId="c17a872c-bc4d-47d0-8d3c-d08cfba8ed09";
+
+    init(clientId, programId, leaderboardId);
   </script>
 </body>
 
