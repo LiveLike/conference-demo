@@ -227,3 +227,11 @@ livelike-option:not([incorrect], [correct]){
     opacity: 1;
   }
 }
+
+livelike-text-poll livelike-progress,
+livelike-image-poll livelike-progress,
+livelike-text-poll livelike-percentage,
+livelike-text-quiz livelike-percentage,
+livelike-image-poll livelike-percentage{
+  visibility: visible !important;
+}

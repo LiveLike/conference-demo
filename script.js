@@ -178,6 +178,100 @@ const showProfileTabIfFirstTimeVisiting = () => {
   }
 };
 
+const getDuration = (str) => {
+  const time = parseInt(str.substring(4, 6)) * 60 * 60 + parseInt(str.substring(7, 9)) * 60 + parseInt(str.substring(10, 12))
+  // console.log(time)
+  return time;
+}
+
+const setWidgetInteraction = (interaction, widget) => {
+  const optionOrChoice = interaction.option_id || interaction.choice_id;
+  if (optionOrChoice) {
+    const selectedOption = { id: optionOrChoice };
+    if (interaction.hasOwnProperty("is_correct")) {
+      selectedOption.is_correct = interaction.is_correct;
+    }
+    widget.selectedOption = selectedOption;
+  }
+  if (interaction.magnitude)
+    widget.average_magnitude = interaction.magnitude;
+};
+
+function registerCustomTimeline(widgetsContainer) {
+
+  // Checks the widget vote. If a vote exists, sets the results phase.
+  // If no vote exists yet, it runs the passed notVotedBehavior.
+  const setWidgetPhase = (widget) => {
+    getWidgetVote(widget).then(interactions => {
+      if (interactions[widget.kind] && interactions[widget.kind].length > 0) {
+        const widgetInteraction = interactions[widget.kind][0];
+        setWidgetInteraction(widgetInteraction, widget);
+        widget.results()
+      } else {
+        if (widget.timeout) {
+          var date = new Date(widget.widgetPayload.published_at).getTime() / 1000;
+          var curr = new Date().getTime() / 1000;
+          date = date + getDuration(widget.widgetPayload.timeout)
+          var isValid = curr > date ? false : true
+          const diff = date - curr;
+
+          if (isValid)//&& timeout expired
+          {
+            widget.interactive({ timeout: diff * 1000 }).then(widget.results);
+          }
+          else {
+            widget.results()
+          }
+        }
+
+      }
+    })
+  }
+
+
+  // Gets initial list of widgets
+  LiveLike.getPostedWidgets({
+    programId: programId
+  }).then(({ widgets }) => {
+    // Loops over them, if they're part of liveLikeWidgets list, show them.
+    // The `mode` function sets the behavior of each of these widgets
+
+    widgets.forEach(
+      widgetPayload =>
+        widgetsContainer.showWidget({
+          widgetPayload,
+          mode: ({ widget }) => {
+            return widgetsContainer.attach(widget, 'append').then(() => {
+              setWidgetPhase(widget)
+            })
+          },
+          initialLoad: true
+        })
+    )
+  })
+
+  // Defines the behavior for all widgets that are displayed from being published while use is on page.
+  // It will be interactive until the timer elapses, and then it will move the the results phase.
+  LiveLike.registerWidgetMode(
+    'customTimeline',
+    ({ widget }) => {
+      widgetsContainer
+        .attach(widget)
+        .then(() => {
+          setWidgetPhase(widget)
+        })
+    }
+  )
+}
+
+
+function getWidgetVote(e) {
+  return LiveLike.getWidgetInteractions({
+    programId: e.program_id,
+    widgets: [{ kind: e.kind, id: e.widgetId }],
+  })
+}
+
 const init = (clientId, programId, leaderboardId) => {
     LiveLike.init({
         clientId: clientId,
@@ -188,6 +282,7 @@ const init = (clientId, programId, leaderboardId) => {
         refreshProfileData();
         const widgetsContainer = document.querySelector('livelike-widgets');
         widgetsContainer.programid = programId;
+        registerCustomTimeline(widgetsContainer)
         document.querySelector('#user-profile-nickname').innerHTML =
           LiveLike.userProfile.nickname;
       });
